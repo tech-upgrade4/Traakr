@@ -118,7 +118,8 @@
 
   <center><h3 class="contact-us-heading" id="contact-us">Contact us</h3></center>
 
-  <form action="#" method="get" class="contact-us-form">
+  <form action="includes/includes.contact.php" method="get" class="contact-us-form">
+
     <div>
       <label for="name">Name:</label> <br>
       <input type="text" id="name" name="name"> <br> <br>
@@ -130,8 +131,15 @@
     <div>
       <label for="message">Message:</label>
       <textarea name="message" id="message" cols="30" rows="10"></textarea>
-      <center><input type="submit" value="Send message" class="send-message-button"></center>
+      <center><input type="submit" value="Send message" class="send-message-button" name="submit"></center>
     </div>
+
+    <?php
+      if (isset($_GET['result'])){
+        $result = $_GET['result'];
+        echo "<br><center><h4>" . $result . "</h4></center>";
+      }
+    ?>
     
   </form>
 
